@@ -1,0 +1,120 @@
+@startuml
+
+enum Priority{
+    +PRI_LOW
+	+PRI_MIDDLE
+	+PRI_HIGH
+}
+
+class Task {
+    - String name
+    - String description
+    - Date due_Date
+    - Priority priority
+    - bool completed
+    - std::vector<Tag> tags
+	- Timeline timeline
+	- Reminder* reminder
+    + Task(std::string _name, std::string _description, int _year, int _month, int _day, int _hour, int _min, Priority _priority)
+	+ ~Task()
+	+ void set_reminder(const Date& remind_date)
+	+ void add_tag(Tag _tag)
+	+ void add_timeline_node(Date date, std::string desc)
+	+ bool if_completed()
+	+ void mark_completed()
+	+ std::string get_name()
+	+ std::string get_description()
+	+ Date get_ddl()
+	+ int get_priority()
+	+ std::vector<Tag> get_tags()
+	+ Timeline get_timeline()
+	+ Reminder* get_reminder()
+}
+
+class Category {
+    - std::vector<std::string> cat_name_list
+	- std::vector<std::vector<Task*>> cat_task_list
+	+ Category()
+	+ int search_in_cat_name_list(std::string cat_name)
+	+ void new_category(std::string cat_name)
+	+ void add_task2cat(std::string cat_name, Task* task)
+	+ void show()
+	+ void search_task_in_category(std::string task_name, int* _i, int* _j)
+	+ void delete_task_in_category(std::string task_name)
+}
+
+class Tag {
+    - std::string name
+	+ Tag(std::string _name):name(_name) 
+	+ std::string get_name() 
+}
+
+class TimeLine {
+    - std::vector<Date> date_list
+	- std::vector<std::string> desc_list
+	+ Timeline(const Date& _date)
+	+ void add_timeline_node(Date date, std::string desc)
+	+ void show()
+}
+
+class Reminder {
+    - Date remind_date
+	+ Reminder(const Date& _date)
+	+ Date get_remind_date()
+}
+
+enum ViewType{
+	+ VIEW_CALENDAR
+	+ VIEW_PRIORITY
+	+ VIEW_DDL
+	+ VIEW_REMINDER
+	+ VIEW_CATEGORY
+}
+
+class ViewMode {
+    - ViewType vt                     
+	+ ViewMode()
+	+ void change_vt(ViewType _vt)
+	+ void show()
+}
+
+class Statistics {
+    + float calculate_completion_rate()
+}
+
+class UserInterface {
+    - int search_in_task_list(std::string _name)
+    + void new_task(std::string _name, std::string _description, int _year, int _month, int _day, int _hour, int _min, Priority _priority)
+	+ void delete_task(std::string _name)
+	+ void finish_task(std::string _name)
+	+ void add_tag2task(std::string _task_name, std::string _tag_name)
+	+ void add_timeline_node2task(std::string _name, int _year, int _month, int _day, int _hour, int _min, std::string desc)
+	+ void add_reminder2task(std::string _name, int _year, int _month, int _day, int _hour, int _min)
+	+ void show_all_details_of_task(std::string _name)
+	+ void new_category(std::string cat_name)
+	+ void delete_category(std::string cat_name)
+	+ void move_task_cat2other(std::string task_name, std::string cat_name_ori, std::string cat_name_des)
+	+ void tasks_show_by_calendar()
+	+ void tasks_show_by_priority()
+	+ void tasks_show_by_category()
+	+ void tasks_show_by_ddl();
+	+ void tasks_show_by_reminder()
+	+ void show_completion_rate()
+}
+
+Task --> Category : belongs to
+Task "1" --> "1" Priority : has
+Task "1" --> "1" Reminder : has
+Task "1" --> "1" TimeLine : has
+Task "1" --> "n" Tag : has
+ViewMode "1" --> "1" ViewType : has
+ViewMode --> Task : displays
+Statistics --> Task : calculates 
+
+UserInterface --> Task : use
+UserInterface --> Category : use
+UserInterface --> ViewMode : use
+UserInterface --> Statistics : use
+
+
+@enduml

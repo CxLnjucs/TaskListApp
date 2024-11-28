@@ -7,22 +7,22 @@ using namespace std;
 
 int main() {
 	UserInterface ui;
-	// ¹¹½¨task1
-	ui.new_task("task1", "ÎïÀíÊµÑé", 2024, 10, 1, 23, 59, PRI_MIDDLE);
-	ui.add_timeline_node2task("task1", 2024, 9, 30, 20, 0, "Éè¼ÆÊµÑé·½°¸");
+	// ï¿½ï¿½ï¿½ï¿½task1
+	ui.new_task("task1", "ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½", 2024, 10, 1, 23, 59, PRI_MIDDLE);
+	ui.add_timeline_node2task("task1", 2024, 9, 30, 20, 0, "ï¿½ï¿½ï¿½Êµï¿½é·½ï¿½ï¿½");
 
-	// ¹¹½¨task2 
-	ui.new_task("task2", "Ï´ÒÂ·þ", 2024, 9, 30, 18, 0, PRI_LOW);
-	ui.add_tag2task("task2", "ÆÕÍ¨");
-	ui.add_tag2task("task2", "Éú»î");
+	// ï¿½ï¿½ï¿½ï¿½task2 
+	ui.new_task("task2", "Ï´ï¿½Â·ï¿½", 2024, 9, 30, 18, 0, PRI_LOW);
+	ui.add_tag2task("task2", "ï¿½ï¿½Í¨");
+	ui.add_tag2task("task2", "ï¿½ï¿½ï¿½ï¿½");
 	ui.finish_task("task2");
 
-	// ¹¹½¨task3
-	ui.new_task("task3", "µ½ÄÏ¾©ÄÏÕ¾³Ë³µ", 2024, 10, 2, 15, 0, PRI_HIGH);
-	ui.add_tag2task("task3", "³öÐÐ");
+	// ï¿½ï¿½ï¿½ï¿½task3
+	ui.new_task("task3", "ï¿½ï¿½ï¿½Ï¾ï¿½ï¿½ï¿½Õ¾ï¿½Ë³ï¿½", 2024, 10, 2, 15, 0, PRI_HIGH);
+	ui.add_tag2task("task3", "ï¿½ï¿½ï¿½ï¿½");
 	ui.add_reminder2task("task3", 2024, 10, 2, 13, 0);
 	
-	// Õ¹Ê¾¹¹½¨½á¹û
+	// Õ¹Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	cout << endl << "############################" << endl << endl;
 	ui.show_all_details_of_task("task1");
 	cout << endl << "############################" << endl << endl;
@@ -31,7 +31,7 @@ int main() {
 	ui.show_all_details_of_task("task3");
 	cout << endl << "############################" << endl << endl;
 
-	// Õ¹Ê¾ÁÐ±íÊÓÍ¼ÅÅÐò½á¹û
+	// Õ¹Ê¾ï¿½Ð±ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	ui.tasks_show_by_category();
 	cout << endl << "############################" << endl << endl;
 	ui.tasks_show_by_ddl();
@@ -39,5 +39,8 @@ int main() {
 	ui.tasks_show_by_priority();
 	cout << endl << "############################" << endl << endl;
 
+	// å±•ç¤ºç»Ÿè®¡åŠŸèƒ½
+	ui.show_completion_rate();
+	
 	return 0;
 }

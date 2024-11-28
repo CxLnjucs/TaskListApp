@@ -1,0 +1,35 @@
+@startuml
+actor User as U
+participant "UserInterface" as UI
+participant "ViewMode" as VM
+participant "Statistics" as S
+participant "Category" as C
+participant "Task" as T
+participant "Reminder" as R
+participant "TimeLine" as TL
+
+
+U -> UI: 用户使用UI
+UI -> VM: 选择任务列表视图
+UI -> VM: 选择按照分类展示
+VM -> C: 请求分类列表
+C -> T: 请求任务列表
+T --> C: 返回任务列表
+C --> VM: 返回分类列表
+VM --> UI: 进行展示
+
+UI -> S: 查看任务完成率
+S -> T: getCompletedTasks()
+T --> S: 返回已完成任务数
+S -> T: getTotalTasks()
+T --> S: 返回任务总数
+S --> UI: 返回完成率
+
+UI -> T: 新建任务(name, description, dueDate, priority)
+T -> R: 设置提醒时间
+R --> T: 确认提醒时间设置
+T -> TL: 请求默认时间线
+TL --> T: 返回默认时间线
+T --> UI: 完成新建任务
+
+@enduml

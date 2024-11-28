@@ -12,5 +12,5 @@ float Statistics::calculate_completion_rate() {
 		if (task_list[i]->if_completed())completed_num++;
 		else uncompleted_num++;
 	}
-	return completed_num / completed_num + uncompleted_num;
+	return completed_num / (completed_num + uncompleted_num);
 }

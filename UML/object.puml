@@ -1,0 +1,81 @@
+@startuml
+object task1 {
+    name = "task1"
+    description = "物理实验"
+    due_date = "2024-10-1 23:59"
+    priority = PRI_MIDDLE
+    completed = false
+}
+
+object task2 {
+    name = "task2"
+    description = "洗衣服"
+    due_date = "2024-9-30 18:0"
+    priority = PRI_LOW
+    completed = true
+}
+
+object category {
+    name[0] = "工作"
+    name[1] = "生活"
+}
+
+object tag1 {
+    name = "紧急"
+}
+
+object tag2 {
+    name = "家庭"
+}
+
+object timeline1 {
+    Date[0] = "2024-10-1 23:59"
+    message[0] = "截止"
+}
+
+object timeline2 {
+    Date[0] = "2024-9-30 18:0"
+    message[0] = "截止"
+}
+
+object reminder1 {
+    remindAt = "2024-10-30 10:00"
+}
+
+object reminder2 {
+    remindAt = nullptr
+}
+
+object viewmode {
+    viewMode = "列表视图"
+}
+
+object stats {
+    completedTasks = 1
+    totalTasks = 2
+}
+
+object ui {
+    
+}
+
+task1 --> category : belongs to
+task2 --> category : belongs to
+task1 --> reminder1 : has
+task2 --> reminder2 : has
+task1 --> tag1 : has
+task2 --> tag2 : has
+task1 --> timeline1 : has
+task2 --> timeline2 : has
+viewmode --> task1 : displays
+viewmode --> task2 : displays
+stats --> task1 : calculates from
+stats --> task2 : calculates from
+
+ui --> task1 : use
+ui --> task2 : use
+ui --> category : use
+ui --> viewmode : use
+ui --> stats : use
+
+@enduml
