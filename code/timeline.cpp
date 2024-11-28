@@ -5,7 +5,7 @@
 
 Timeline::Timeline(const Date& _date) {
 	date_list.push_back(_date);
-	desc_list.push_back("ÈÎÎñ½ØÖ¹");
+	desc_list.push_back("ä»»åŠ¡æˆªæ­¢");
 }
 
 void Timeline::add_timeline_node(Date date, std::string desc) {

@@ -6,7 +6,7 @@
 Category category;
 
 Category::Category(){
-	new_category("Î´·ÖÀà");
+	new_category("æœªåˆ†ç±»");
 }
 
 int Category::search_in_cat_name_list(std::string cat_name) {

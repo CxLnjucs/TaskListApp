@@ -55,7 +55,7 @@ void ViewMode::show() {
 
 	case VIEW_REMINDER:
 		// TODO
-		// ¿¼ÂÇÃ»ÓÐÉèÖÃÌáÐÑÊ±¼äµÄÇé¿ö
+		// è€ƒè™‘æ²¡æœ‰è®¾ç½®æé†’æ—¶é—´çš„æƒ…å†µ
 		break;
 
 	case VIEW_CATEGORY:

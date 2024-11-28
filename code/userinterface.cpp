@@ -9,12 +9,12 @@ int UserInterface::search_in_task_list(std::string _name) {
 	assert(0);
 }
 
-// ÈÎÎñ¹ÜÀíÄ£¿é
+// ä»»åŠ¡ç®¡ç†æ¨¡å—
 void UserInterface::new_task(std::string _name, std::string _description, 
 	int _year, int _month, int _day, int _hour, int _min, Priority _priority) {
 	Task* task = new Task(_name, _description, _year, _month, _day, _hour, _min, _priority);
 	task_list.push_back(task);
-	category.add_task2cat("Î´·ÖÀà", task);
+	category.add_task2cat("æœªåˆ†ç±»", task);
 }
 
 void UserInterface::delete_task(std::string _name) {
@@ -103,7 +103,7 @@ void UserInterface::show_all_details_of_task(std::string _name) {
 }
 
 
-// Àà±ğÄ£¿é
+// ç±»åˆ«æ¨¡å—
 void UserInterface::new_category(std::string cat_name) {
 	category.new_category(cat_name);
 }
@@ -116,7 +116,7 @@ void UserInterface::move_task_cat2other(std::string task_name, std::string cat_n
 }
 
 
-// ÊÓÍ¼Ä£¿é
+// è§†å›¾æ¨¡å—
 void UserInterface::tasks_show_by_calendar() {
 	viewmode.change_vt(VIEW_CALENDAR);
 	viewmode.show();
@@ -143,8 +143,8 @@ void UserInterface::tasks_show_by_reminder() {
 }
 
 
-// Í³¼ÆÄ£¿é
+// ç»Ÿè®¡æ¨¡å—
 void UserInterface::show_completion_rate() {
 	float rate = statistics.calculate_completion_rate();
-	std::cout << "ÈÎÎñÍê³ÉÂÊÎª£º" << 100 * rate << "%." << std::endl;
+	std::cout << "ä»»åŠ¡å®Œæˆç‡ä¸ºï¼š" << 100 * rate << "%." << std::endl;
 }
